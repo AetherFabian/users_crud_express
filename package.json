@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "bin/www",
+  "engines": {
+    "node": ">= 18.12.0",
+    "npm": ">= 9.2.0"
+  },
   "scripts": {
     "start": "node bin/www",
-    "dev": "nodemon bin/www",
+    "start:dev": "nodemon bin/www",
     "test": "jest"
   },
   "repository": {
