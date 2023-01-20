@@ -9,18 +9,20 @@ function runTask(callback) {
     if (invoked) return;
     invoked = true;
     callback(err);
+    console.log('Error process');
   });
 
   process.on('exit', (code) => {
     if (invoked) return;
     invoked = true;
-    const err = code === 0 ? null : new Error('exit code ' + code);
+    const err = code === 0 ? null : new Error(`exit code ${code}`);
     callback(err);
+    console.log('Exit process');
   });
 
 }
 
 runTask((err) => {
-  if (err) console.log(err);
+  if (err) throw err;
   console.log('El servidor está corriendo');
 });
