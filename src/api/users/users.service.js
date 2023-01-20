@@ -1,5 +1,9 @@
-const to = require('await-to-js').default
+const to = require('await-to-js').default;
 
 function getAllUsers() {
-  const [error, users] = 
+  const [error, users] = s;
 }
+
+module.exports = {
+  getAllUsers,
+};

@@ -1,11 +1,45 @@
 version: '3.9'
 services:
+  db:
+    image: mysql:5.7
+    env_file: ./env/.env
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=$MYSQLDB_USER
+      - MYSQL_PASSWORD=$MYSQLDB_USER_PASSWORD
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      quotes-network:
+        ipv4_address: 173.40.0.11
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     env_file:
       - ./env/.env
     ports:
       - 8080:8080
+    depends_on:
+      - db
+    links:
+      - db
     volumes:
       - .:/app
       - ./env:/env
+    networks:
+      quotes-network:
+        ipv4_address: 173.40.0.12
+
+volumes:
+  db_data:
+
+networks:
+  quotes-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 173.40.0.0/16

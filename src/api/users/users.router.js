@@ -5,13 +5,13 @@ const usersController = require('./users.controller');
 
 // importar middlewares
 const auth = require('../../middlewares/auth');
-//const
+// const
 
 router
-  .get('/', auth, usersController.getUsers)
-  .get('/:id', auth, usersController.getUser)
-  .post('/', usersController.createUser)
-  .put('/:id', auth, usersController.updateUser)
-  .delete('/:id', auth, usersController.deleteUser);
+  .get('/', usersController.getUsers);
+// .get('/:id', auth, usersController.getUser())
+// .post('/', auth, usersController.createUser())
+// .put('/:id', auth, usersController.updateUser())
+// .delete('/:id', auth, usersController.deleteUser());
 
 module.exports = router;

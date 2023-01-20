@@ -1,6 +1,25 @@
-{
-  idioma, 
-  pasatiempo,
-  preferencias [playa, ciudad, bosque, pueblos, etc],
-  user_id
+const { ValidationError } = require('sequelize');
+
+function boomErrorHandler(err, _, res, next) {
+  if (err.isBoom) {
+    const { output } = err;
+    res.status(output.statusCode).json(output.payload);
+  }
+  next(err);
 }
+
+function ormErrorHandler(err, _, res, next) {
+  if (err instanceof ValidationError) {
+    res.status(409).json({
+      statusCode: 409,
+      message: err.name,
+      errors: err.errors,
+    });
+  }
+  next(err);
+}
+
+module.exports = {
+  boomErrorHandler,
+  ormErrorHandler,
+};
