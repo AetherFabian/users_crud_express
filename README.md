@@ -18,14 +18,43 @@ npm install
 ## Uso
 Una vez instalada las dependencias, puedes hacer debug de la aplicación de 2 formas:
 
-Para iniciar el modo de desarrollo en un entorno local,deberás de utilizar el comando:
+Para iniciar el modo de desarrollo en un entorno local sin base de datos, deberás de utilizar el comando:
 ```cmd
 npm run start:dev
 ```
-Y para hacerlo con Doker, será con el siguiente:
+Y para hacerlo con contenedores de la aplicación y base de datos. Deberás editar el entrypoint.sh cambiando el script de npm a :
+```
+npm run start:dev
+```
+Y luego ejecutar el siguiente comando, para iniciar los contenedores:
 ```cmd
 docker compose up
 ```
+
+## Pruebas
+Para correr las pruebas, deberás de utilizar el siguiente comando:
+```cmd
+npm run test
+```
+## Despliegue
+Los requerimientos de despliegue son los siguientes:
+  - Node: 18.12.0
+  - npm: 9.2.0
+  - Docker (Optional): 20.10.19
+
+### Despliegue sin Docker
+
+Si el despligue va a ser manual, sólo deberás de instalar los paquetes de npm y configurar para ejecutar el comando:
+```
+npm run start
+```
+### Despliegue con Docker
+Para desplejar la plicación con contenedores, deberás de configurar la variable de entorno como en el archivo.env.example, para que el los servicios funcionen correctamente.
+Y se debe modificar el archivo entrypoint.sh, cambiando el script de npm a:
+```
+npm run start
+```
+
 ## Endpoint de CRUD de Usuarios
 Los siguientes endpoints, hacen uso del servicio de Retiro Parcial de Reservas de Portal de información de Polizas de MetLife:
 
