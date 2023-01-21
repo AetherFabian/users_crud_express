@@ -13,10 +13,10 @@ const {
 
 const sequelize = new Sequelize({
   host,
+  dialect,
   username,
   password,
   database,
-  dialect,
   port,
 });
 

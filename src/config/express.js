@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 
 const routerApi = require('../api/index');
-const errorHandlers = require('../middlewares/error-handlers');
+const { boomErrorHandler, ormErrorHandler } = require('../middlewares/error-handlers');
 
 module.exports = () => {
   const app = express();
@@ -24,8 +24,9 @@ module.exports = () => {
 
   routerApi(app);
 
-  // log errores
-  app.use(errorHandlers);
+  // log errores y retorno de errores
+  app.use(boomErrorHandler);
+  app.use(ormErrorHandler);
 
   // el endopoint no existe
   app.use('*', (req, res) => {

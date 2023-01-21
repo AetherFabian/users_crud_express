@@ -1,17 +1,15 @@
 version: '3.9'
 services:
   db:
-    image: mysql:5.7
+    image: postgres:14.0
     env_file: ./env/.env
     ports:
-      - 3306:3306
+      - 5432:5432
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=$MYSQLDB_USER
-      - MYSQL_PASSWORD=$MYSQLDB_USER_PASSWORD
-      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
     volumes:
-      - db_data:/var/lib/mysql
+      - db_data:/var/lib/postgresql/data/
     networks:
       quotes-network:
         ipv4_address: 173.40.0.11

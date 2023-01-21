@@ -1,12 +1,14 @@
 const childProcess = require('child_process');
 
+console.log('Starting server');
+
 function runTask(callback) {
   // verificar que el callback no se ejecute mas de una vez
   let invoked = false;
-  const process = childProcess.fork('./src/config/server');
+  const proccess = childProcess.fork('./src/config/server');
 
   // escucha el evento error para poder prevenir que el proceso se cierre
-  process.on('error', (err) => {
+  proccess.on('error', (err) => {
     console.log(err);
     if (invoked) return;
     invoked = true;
@@ -15,7 +17,7 @@ function runTask(callback) {
   });
 
   // ejecuta el callback una vez el proceso se haya cerrado
-  process.on('exit', (code) => {
+  proccess.on('exit', (code) => {
     if (invoked) return;
     invoked = true;
     const err = code === 0 ? null : new Error(`exit code ${code}`);
@@ -26,5 +28,5 @@ function runTask(callback) {
 
 runTask((err) => {
   if (err) throw err;
-  console.log('El servidor está corriendo');
+  console.log('Task finished');
 });

@@ -3,10 +3,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = {
-  host: process.env.MYSQLDB_HOST,
-  username: process.env.MYSQLDB_USER,
-  password: process.env.MYSQLDB_USER_PASSWORD,
-  database: process.env.MYSQLDB_DATABASE,
-  dialect: 'mysql',
-  port: process.env.MYSQLDB_PORT,
+  host: process.env.DATABASE_HOST,
+  dialect: 'postgres',
+  username: process.env.DATABASE_USERNAME,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
+  port: process.env.DATABASE_PORT,
 };
