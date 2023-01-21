@@ -54,10 +54,11 @@ Y se debe modificar el archivo entrypoint.sh, cambiando el script de npm a:
 ```
 npm run start
 ```
-
+### Despliegue con Github Actions
+GitHub tiene integrado un servicio de CI/CD llamado GitHub Actions, el cual permite desplegar aplicaciones en un servidor de forma automática, cuando se hace un push a un repositorio.
+Estos deben de ser configurados en el archivo .github/workflows/main.yml, para que se desplieguen de forma automática. Por lo que dejaré un ejemplo.
 ## Endpoint de CRUD de Usuarios
-Los siguientes endpoints, hacen uso del servicio de Retiro Parcial de Reservas de Portal de información de Polizas de MetLife:
-
+Los siguientes endpoints, hacen uso del servicio de usuarios, para realizar las operaciones CRUD:
 path: /api/v1/users:
 - GET / : Obtiene todos los usuarios registrados en la base de datos.
 - GET /:id : Obtiene un usuario en específico de la base de datos.
