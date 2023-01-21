@@ -1,3 +1,7 @@
+// Descripcion: Servicios de usuarios
+// Lanza las funciones de los repositorios para obtener los datos de la base de datos
+// y manipularlos dentro de la aplicación, retornando los resultados
+
 const to = require('await-to-js').default;
 const Boom = require('@hapi/boom');
 const UserRepo = require('./users.repository');

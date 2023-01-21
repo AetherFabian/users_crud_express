@@ -1,3 +1,7 @@
+// Descripcion: Archivo principal de la aplicación, que busca
+// mantener la aplicación en ejecución dentro del hilo principal
+// y si se cierra, lograr reiniciarla en un entorno de producción con Docker
+
 const childProcess = require('child_process');
 
 console.log('Starting server');

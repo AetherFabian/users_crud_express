@@ -1,3 +1,5 @@
+// Descipcion: Archivo que configura el servidor express
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');

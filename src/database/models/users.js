@@ -87,13 +87,13 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.ARRAY(DataTypes.STRING({
         length: 30,
       })),
-      allowNull: false,
+      allowNull: true,
     },
     preferences: {
       type: DataTypes.ARRAY(DataTypes.STRING({
         length: 30,
       })),
-      allowNull: false,
+      allowNull: true,
     },
     deleted_by: {
       type: DataTypes.BIGINT,

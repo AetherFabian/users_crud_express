@@ -1,3 +1,4 @@
+// Descipcion: Archivo que autentica la conexion a la base de datos
 const sequelize = require('../database/database');
 
 async function connectDB() {

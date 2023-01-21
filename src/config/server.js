@@ -1,3 +1,5 @@
+// Este archivo se encarga de iniciar el servidor y la base de datos
+
 const { startWebServer } = require('../../app');
 const startDatabase = require('./database');
 

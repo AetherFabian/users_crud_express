@@ -1,3 +1,6 @@
+// Descripcion: Controlador de usuarios
+// Lanza los servicios de usuarios y devuelve la respuesta o pasa al siguiente middleware
+
 const to = require('await-to-js').default;
 const UsersService = require('./users.service');
 

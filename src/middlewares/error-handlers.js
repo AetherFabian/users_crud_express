@@ -1,3 +1,6 @@
+// Descripcion: Manejadores de errores personalizados
+// sobre errores del ORM y errores de Boom
+
 const { ValidationError } = require('sequelize');
 
 function boomErrorHandler(err, _, res, next) {

@@ -1,3 +1,6 @@
+// Descripción: Este archivo contiene las funciones que se encargan de realizar las operaciones
+// directas a la base de datos
+
 const to = require('await-to-js').default;
 const { User } = require('../../database/models');
 

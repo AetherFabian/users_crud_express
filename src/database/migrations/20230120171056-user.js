@@ -82,13 +82,13 @@ module.exports = {
       type: Sequelize.ARRAY(Sequelize.STRING({
         length: 30,
       })),
-      allowNull: false,
+      allowNull: true,
     },
     preferences: {
       type: Sequelize.ARRAY(Sequelize.STRING({
         length: 30,
       })),
-      allowNull: false,
+      allowNull: true,
     },
     deleted_by: {
       type: Sequelize.BIGINT,
