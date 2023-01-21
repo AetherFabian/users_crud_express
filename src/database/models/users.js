@@ -7,11 +7,10 @@ module.exports = function (sequelize, DataTypes) {
   }
   User.init({
     id: {
-      type: DataTypes.NUMERIC,
-      autoIncrement: true,
+      type: DataTypes.UUID,
       primaryKey: true,
     },
-    name: {
+    firstName: {
       type: DataTypes.STRING({
         length: 15,
       }),

@@ -1,10 +1,8 @@
 const to = require('await-to-js').default;
-const { user } = require('../../database/models');
+const { User } = require('../../database/models');
 
 async function findAllUsers() {
-  const { Model } = user;
-  const [error, users] = await to(Model.find({}));
-  console.log('users', users);
+  const [error, users] = await to(User.findAll());
   if (error) throw error;
   return users;
 }

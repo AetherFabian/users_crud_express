@@ -1,12 +1,11 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up: async (queryInterface, Sequelize) => await queryInterface.createTable('users', {
+  up: (queryInterface, Sequelize) => queryInterface.createTable('users', {
     id: {
-      type: Sequelize.NUMERIC,
-      autoIncrement: true,
+      type: Sequelize.UUID,
       primaryKey: true,
     },
-    name: {
+    firstName: {
       type: Sequelize.STRING({
         length: 15,
       }),
@@ -97,5 +96,5 @@ module.exports = {
     },
   }),
 
-  down: async (queryInterface, Sequelize) => await queryInterface.dropTable('coverages'),
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('coverages'),
 };
