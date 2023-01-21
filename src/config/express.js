@@ -31,6 +31,7 @@ module.exports = () => {
   // el endopoint no existe
   app.use('*', (req, res) => {
     res.status(404).json({
+      statusCode: 404,
       message: 'Enpoint not found',
     });
   });
