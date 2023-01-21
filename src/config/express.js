@@ -10,7 +10,7 @@ module.exports = () => {
   const app = express();
 
   // parse application/x-www-form-urlencoded
-  app.use(bodyParser.urlencoded({
+  app.use(bodyParser.json({
     extended: false,
   }));
 

@@ -8,9 +8,11 @@ module.exports = function (sequelize, DataTypes) {
   User.init({
     id: {
       type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      allowNull: false,
       primaryKey: true,
     },
-    firstName: {
+    first_name: {
       type: DataTypes.STRING({
         length: 15,
       }),
